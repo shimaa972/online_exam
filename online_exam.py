@@ -147,6 +147,7 @@ def prediction_dashboard(df):
     # </div>
     # """, unsafe_allow_html=True)
     
+    
     # تحضير البيانات
     features = df[['Branch', 'Certificate', 'StudentAge', 'JobType']]
     features = pd.get_dummies(features, columns=['Branch', 'Certificate', 'JobType'])
