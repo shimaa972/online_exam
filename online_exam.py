@@ -106,7 +106,7 @@ def analytics_dashboard(df):
         values=[employed, total-employed],
         title='Employment Distribution',
         color=['Employed', 'Not Employed'],
-        color_discrete_map={'Employed': '#900d06', 'Not Employed': '#808080'}
+        color_discrete_map={'Employed': '#808080', 'Not Employed': '#900d06'}
     )
     st.plotly_chart(fig1, use_container_width=True)
 
@@ -140,12 +140,12 @@ def prediction_dashboard(df):
     st.markdown(student_card.format(content=profile_content), unsafe_allow_html=True)
 
     # نموذج التنبؤ
-    st.markdown("""
-    <div style="background-color:#f0f2f6; padding:20px; border-radius:10px; 
-         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1); margin-bottom:20px;">
-        <h3 style="color:#333; border-bottom:1px solid #ddd; padding-bottom:10px;">🎯 Employment Prediction Model</h3>
-    </div>
-    """, unsafe_allow_html=True)
+    # st.markdown("""
+    # <div style="background-color:#f0f2f6; padding:20px; border-radius:10px; 
+    #      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.1); margin-bottom:20px;">
+    #     <h3 style="color:#333; border-bottom:1px solid #ddd; padding-bottom:10px;">🎯 Employment Prediction Model</h3>
+    # </div>
+    # """, unsafe_allow_html=True)
     
     # تحضير البيانات
     features = df[['Branch', 'Certificate', 'StudentAge', 'JobType']]
@@ -163,7 +163,7 @@ def prediction_dashboard(df):
     
     # تقييم النموذج
     accuracy = accuracy_score(y_test, model.predict(X_test))
-    st.write(f"Model Accuracy: {accuracy:.1%}")
+    # st.write(f"Model Accuracy: {accuracy:.1%}")
     
     # تحضير بيانات الطالب للتنبؤ
     student_features = pd.DataFrame({
